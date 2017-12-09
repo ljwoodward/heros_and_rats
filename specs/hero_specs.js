@@ -36,6 +36,7 @@ describe('Hero', function() {
   })
 
   it("should be able to add a task", function() {
+    hero.addTask(task1);
     assert.strictEqual(1, hero.tasks.length);
   })
 
@@ -52,33 +53,50 @@ describe('Hero', function() {
     assert.equal(65, hero.health);
   })
 
-  it("should be able to sort their tasks by difficulty, urgency or reward-- difficulty ascending", function() {
+  it("should be able to list tasks", function() {
     hero.addTask(task1);
     hero.addTask(task2);
     hero.addTask(task3);
-    assert.equal("1. Buy fags, 2. Clean out the latrines, 3. Call BT", hero.listTasks(byDifficulty(asc));
+    assert.equal("1. Clean out the latrines, 2. Buy fags, 3. Call BT", hero.listTasks(hero.tasks));
+  })
+
+  xit("should be able to sort their tasks by difficulty, urgency or reward-- difficulty ascending", function() {
+    hero.addTask(task1);
+    hero.addTask(task2);
+    hero.addTask(task3);
+    assert.equal("1. Buy fags, 2. Clean out the latrines, 3. Call BT", hero.listTasks(tasksByDifficulty(asc)));
   })
 
   xit("should be able to sort their tasks by difficulty, urgency or reward-- difficulty descending", function() {
     hero.addTask(task1);
     hero.addTask(task2);
     hero.addTask(task3);
-    assert.equal("1. Buy fags, 2. Clean out the latrines, 3. Call BT", hero.listTasks(byDifficulty(desc));
+    assert.equal("1. Call BT, 2. Clean out the latrines, 3. Buy fags", hero.listTasks(tasksBxyDifficulty(desc)));
   })
 
   xit("should be able to sort their tasks by difficulty, urgency or reward-- urgency ascending", function() {
-
+    hero.addTask(task1);
+    hero.addTask(task2);
+    hero.addTask(task3);
   })
 
   xit("should be able to sort their tasks by difficulty, urgency or reward-- urgency descending", function() {
-
+    hero.addTask(task1);
+    hero.addTask(task2);
+    hero.addTask(task3);
   })
 
   xit("should be able to sort their tasks by difficulty, urgency or reward-- reward ascending", function() {
-
+    hero.addTask(task1);
+    hero.addTask(task2);
+    hero.addTask(task3);
   })
 
   xit("should be able to sort their tasks by difficulty, urgency or reward-- reward descending", function() {
-
+    hero.addTask(task1);
+    hero.addTask(task2);
+    hero.addTask(task3);
   })
+
+
 })

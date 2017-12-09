@@ -25,6 +25,19 @@ Hero.prototype.eatFood = function (food) {
   }
 };
 
+Hero.prototype.listTasks = function (taskArray) {
+  let list = "";
+  for (var i = 0; i < taskArray.length; i++) {
+    if (i !== (taskArray.length -1)) {
+      list += `${(i + 1)}. ${taskArray[i].name}, `;
+    }
+    else {
+      list += `${i + 1}. ${taskArray[i].name}`
+    }
+  };
+  return list;
+};
+
 const maxHealth = 100;
 
 

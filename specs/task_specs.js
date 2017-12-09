@@ -4,9 +4,9 @@ var Task = require('../task.js');
 describe('Task', function() {
 
 let task1;
-  
+
   beforeEach(function() {
-    task1 = new Task(3, 4, 50);
+    task1 = new Task("Kill dragon",3, 4, 50);
   })
 
   it("should have a difficulty level", function() {
