@@ -25,4 +25,8 @@ describe('Hero', function() {
     assert.equal("Donner Kebab", hero.favouriteFood);
   })
 
+  it("should be able to talk", function() {
+    assert.equal("They call me Duncan the Magnificent", hero.talk());
+  })
+
 })
