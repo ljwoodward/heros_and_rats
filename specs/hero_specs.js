@@ -14,7 +14,7 @@ describe('Hero', function() {
     hero = new Hero("Duncan the Magnificent", 50, "Donner Kebab");
     task = new Task(3, 4, 50);
     food1 = new Food("Mealworms", 25);
-    food1 = new Food("Donner Kebab", 10);
+    food2 = new Food("Donner Kebab", 10);
     hero.addTask(task1);
   })
 
@@ -50,7 +50,7 @@ describe('Hero', function() {
 
   it("should get extra replenishment from favourite food", function() {
     hero.eatFood(food2);
-    assert.equal(70, hero.health);
+    assert.equal(65, hero.health);
   })
 
 })
