@@ -17,6 +17,9 @@ describe('Hero', function() {
     task3 = new Task("Call BT", 5, 2, 40);
     food1 = new Food("Mealworms", 25);
     food2 = new Food("Donner Kebab", 10);
+    hero.addTask(task1);
+    hero.addTask(task2);
+    hero.addTask(task3);
   })
 
   it("should have a name", function() {
@@ -46,9 +49,6 @@ describe('Hero', function() {
     assert.strictEqual(100, newHero.health);
   })
 
-  // - A hero should be able to sort their tasks by difficulty, urgency or reward.
-  // - A hero should be able to view tasks that are marked as completed or incomplete.
-
   it("should be able to eat food and be replenished by it", function() {
     hero.eatFood(food1);
     assert.equal(75, hero.health);
@@ -60,53 +60,43 @@ describe('Hero', function() {
   })
 
   it("should be able to list tasks", function() {
-    hero.addTask(task1);
-    hero.addTask(task2);
-    hero.addTask(task3);
     assert.equal("1. Clean out the latrines, 2. Buy fags, 3. Call BT", hero.listTasks(hero.tasks));
   })
 
   it("should be able to sort their tasks by difficulty, urgency or reward-- difficulty ascending", function() {
-    hero.addTask(task1);
-    hero.addTask(task2);
-    hero.addTask(task3);
     assert.equal("1. Buy fags, 2. Clean out the latrines, 3. Call BT", hero.listTasks(hero.tasksByDifficulty("asc")));
   })
 
   it("should be able to sort their tasks by difficulty, urgency or reward-- difficulty descending", function() {
-    hero.addTask(task1);
-    hero.addTask(task2);
-    hero.addTask(task3);
     assert.equal("1. Call BT, 2. Clean out the latrines, 3. Buy fags", hero.listTasks(hero.tasksByDifficulty("desc")));
   })
 
   it("should be able to sort their tasks by difficulty, urgency or reward-- urgency ascending", function() {
-    hero.addTask(task1);
-    hero.addTask(task2);
-    hero.addTask(task3);
     assert.equal("1. Call BT, 2. Buy fags, 3. Clean out the latrines", hero.listTasks(hero.tasksByUrgerncy("asc")));
   })
 
   it("should be able to sort their tasks by difficulty, urgency or reward-- urgency descending", function() {
-    hero.addTask(task1);
-    hero.addTask(task2);
-    hero.addTask(task3);
     assert.equal("1. Clean out the latrines, 2. Buy fags, 3. Call BT", hero.listTasks(hero.tasksByUrgerncy("desc")))
   })
 
   it("should be able to sort their tasks by difficulty, urgency or reward-- reward ascending", function() {
-    hero.addTask(task1);
-    hero.addTask(task2);
-    hero.addTask(task3);
     assert.equal("1. Buy fags, 2. Call BT, 3. Clean out the latrines", hero.listTasks(hero.tasksByReward("asc")))
   })
 
   it("should be able to sort their tasks by difficulty, urgency or reward-- reward descending", function() {
-    hero.addTask(task1);
-    hero.addTask(task2);
-    hero.addTask(task3);
     assert.equal("1. Clean out the latrines, 2. Call BT, 3. Buy fags", hero.listTasks(hero.tasksByReward("desc")))
   })
+
+  it("should be able to view tasks that are marked as completed", function () {
+    task1.complete();
+    assert.equal("Completed Tasks: 1. Clean out the latrines", hero.completedTasks())
+  })
+
+  it("should be able to view tasks that are marked as incomplete", function () {
+    task1.complete();
+    assert.equal("To do: 1. Buy fags, 2. Call BT", hero.toDo())
+  })
+
 
 
 })

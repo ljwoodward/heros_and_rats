@@ -27,12 +27,9 @@ Hero.prototype.eatFood = function (food) {
 
 Hero.prototype.tasksByDifficulty = function (ascDesc) {
   let tasksOrder = this.tasks.sort(function(a, b){
-    return a.diffLevel - b.diffLevel;
+    return a.diffLevel < b.diffLevel;
   })
-//   this.tasks.sort(function(a, b){
-//     return a.diffLevel - b.diffLevel;
-// })
-  if (ascDesc === "desc") {
+  if (ascDesc === "asc") {
     tasksOrder.reverse();
   }
   return tasksOrder;
@@ -40,12 +37,9 @@ Hero.prototype.tasksByDifficulty = function (ascDesc) {
 
 Hero.prototype.tasksByUrgerncy = function (ascDesc) {
   let tasksOrder = this.tasks.sort(function(a, b){
-    return a.urgLevel - b.urgLevel;
+    return a.urgLevel < b.urgLevel;
   })
-//   this.tasks.sort(function(a, b){
-//     return a.diffLevel - b.diffLevel;
-// })
-  if (ascDesc === "desc") {
+  if (ascDesc === "asc") {
     tasksOrder.reverse();
   }
   return tasksOrder;
@@ -53,12 +47,9 @@ Hero.prototype.tasksByUrgerncy = function (ascDesc) {
 
 Hero.prototype.tasksByReward = function (ascDesc) {
   let tasksOrder = this.tasks.sort(function(a, b){
-    return a.reward - b.reward;
+    return a.reward < b.reward;
   })
-//   this.tasks.sort(function(a, b){
-//     return a.diffLevel - b.diffLevel;
-// })
-  if (ascDesc === "desc") {
+  if (ascDesc === "asc") {
     tasksOrder.reverse();
   }
   return tasksOrder;
