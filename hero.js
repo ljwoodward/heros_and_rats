@@ -25,6 +25,10 @@ Hero.prototype.eatFood = function (food) {
   }
 };
 
+Hero.prototype.listTasks = function () {
+  return list(this.tasks)
+};
+
 Hero.prototype.tasksByDifficulty = function (ascDesc) {
   let tasksOrder = this.tasks.sort(function(a, b){
     return a.diffLevel < b.diffLevel;
@@ -32,7 +36,7 @@ Hero.prototype.tasksByDifficulty = function (ascDesc) {
   if (ascDesc === "asc") {
     tasksOrder.reverse();
   }
-  return tasksOrder;
+  return list(tasksOrder);
 };
 
 Hero.prototype.tasksByUrgerncy = function (ascDesc) {
@@ -42,7 +46,7 @@ Hero.prototype.tasksByUrgerncy = function (ascDesc) {
   if (ascDesc === "asc") {
     tasksOrder.reverse();
   }
-  return tasksOrder;
+  return list(tasksOrder);
 };
 
 Hero.prototype.tasksByReward = function (ascDesc) {
@@ -52,10 +56,30 @@ Hero.prototype.tasksByReward = function (ascDesc) {
   if (ascDesc === "asc") {
     tasksOrder.reverse();
   }
-  return tasksOrder;
+  return list(tasksOrder);
 };
 
-Hero.prototype.listTasks = function (taskArray) {
+Hero.prototype.completedTasks = function () {
+  let compArray = [];
+  for (task of this.tasks) {
+    if (task.isComplete) {
+      compArray.push(task);
+    }
+  }
+  return `Completed Tasks: ${list(compArray)}`;
+};
+
+Hero.prototype.toDo = function () {
+  let toDoArray = [];
+  for (task of this.tasks) {
+    if (!task.isComplete) {
+      toDoArray.push(task);
+    }
+  }
+  return `To do: ${list(toDoArray)}`;
+};
+
+const list = function (taskArray) {
   let list = "";
   for (var i = 0; i < taskArray.length; i++) {
     if (i !== (taskArray.length -1)) {
@@ -67,7 +91,6 @@ Hero.prototype.listTasks = function (taskArray) {
   };
   return list;
 };
-
 
 const maxHealth = 100;
 
