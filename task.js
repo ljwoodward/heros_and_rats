@@ -1,4 +1,5 @@
-const Task = function(diffLevel, urgLevel, reward) {
+const Task = function(name, diffLevel, urgLevel, reward) {
+  this.name = name;
   this.diffLevel = diffLevel;
   this.urgLevel = urgLevel;
   this.reward = reward;

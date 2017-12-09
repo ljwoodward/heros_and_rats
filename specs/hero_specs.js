@@ -12,10 +12,11 @@ describe('Hero', function() {
 
   beforeEach(function() {
     hero = new Hero("Duncan the Magnificent", 50, "Donner Kebab");
-    task = new Task(3, 4, 50);
+    task1 = new Task("Clean out the latrines", 3, 4, 50);
+    task2 = new Task("Buy fags", 2, 3, 60);
+    task3 = new Task("Call BT", 5, 2, 30);
     food1 = new Food("Mealworms", 25);
     food2 = new Food("Donner Kebab", 10);
-    hero.addTask(task1);
   })
 
   it("should have a name", function() {
@@ -38,8 +39,6 @@ describe('Hero', function() {
     assert.strictEqual(1, hero.tasks.length);
   })
 
-  // - A hero should be able to eat food, and health should go up by the replenishment value
-  // - If the food is their favourite food, their health should go up by 1.5 * value.
   // - A hero should be able to sort their tasks by difficulty, urgency or reward.
   // - A hero should be able to view tasks that are marked as completed or incomplete.
 
@@ -53,4 +52,33 @@ describe('Hero', function() {
     assert.equal(65, hero.health);
   })
 
+  it("should be able to sort their tasks by difficulty, urgency or reward-- difficulty ascending", function() {
+    hero.addTask(task1);
+    hero.addTask(task2);
+    hero.addTask(task3);
+    assert.equal("1. Buy fags, 2. Clean out the latrines, 3. Call BT", hero.listTasks(byDifficulty(asc));
+  })
+
+  xit("should be able to sort their tasks by difficulty, urgency or reward-- difficulty descending", function() {
+    hero.addTask(task1);
+    hero.addTask(task2);
+    hero.addTask(task3);
+    assert.equal("1. Buy fags, 2. Clean out the latrines, 3. Call BT", hero.listTasks(byDifficulty(desc));
+  })
+
+  xit("should be able to sort their tasks by difficulty, urgency or reward-- urgency ascending", function() {
+
+  })
+
+  xit("should be able to sort their tasks by difficulty, urgency or reward-- urgency descending", function() {
+
+  })
+
+  xit("should be able to sort their tasks by difficulty, urgency or reward-- reward ascending", function() {
+
+  })
+
+  xit("should be able to sort their tasks by difficulty, urgency or reward-- reward descending", function() {
+
+  })
 })
