@@ -17,11 +17,11 @@ describe('Hero', function() {
     assert.equal("Duncan the Magnificent", hero.name);
   })
 
-  xit("should have health", function() {
+  it("should have health", function() {
     assert.equal(100, hero.health);
   })
 
-  xit("should have a favourite food", function() {
+  it("should have a favourite food", function() {
     assert.equal("Donner Kebab", hero.favouriteFood);
   })
 
