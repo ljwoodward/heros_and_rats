@@ -15,7 +15,7 @@ describe('Rat', function() {
   // - Rats should be able to touch food,  if they do the food becomes poisonous.
   it("should be able to touch food", function () {
     rat.touchFood(food1);
-    assert.strictEqual(-50, food1.replenValue);
+    assert.strictEqual(true, food1.isPoisonous);
   })
 
 
