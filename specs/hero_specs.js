@@ -1,5 +1,6 @@
 var assert = require('assert');
 var Hero = require('../hero.js');
+var Task = require('../task.js');
 
 describe('Hero', function() {
 
@@ -32,7 +33,7 @@ describe('Hero', function() {
     assert.equal("They call me Duncan the Magnificent", hero.talk());
   })
 
-  xit("should be able to add a task", function() {
+  it("should be able to add a task", function() {
     assert.strictEqual(1, hero.tasks.length);
   })
 
